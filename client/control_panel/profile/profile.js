@@ -11,6 +11,9 @@ if (Meteor.isClient) {
 			if (userModel) {
 				return userModel.profile.cover;
 			}
+		},
+		hotelLink: function(){
+			return location.origin + '/hotel/' + Meteor.userId();
 		}
 	});
 	Template.profile.events({
