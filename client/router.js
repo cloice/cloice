@@ -6,8 +6,8 @@ Router.onBeforeAction(function() {
 	}
 });
 
-Router.route('/', function () {
-	this.render('main');
+Router.route('/', function () {	
+	this.redirect('/control-panel');
 });
 
 Router.route('/control-panel', function () {
