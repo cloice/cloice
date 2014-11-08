@@ -1,48 +1,81 @@
 <template name="profile">
-	<form role="form">
-		<div class="form-group">
-			<label for="nameInput">Hotel name</label>
-			<input type="text" class="form-control" id="nameInput" placeholder="Enter hotel name" value="{{ currentUser.profile.name }}">
-		</div>
-		<div class="media">
-			{{ #if currentUser.profile.logo }}
-			<div class="media-left">
-				<img class="thumbnail" src="{{ currentUser.profile.logo }}" style="max-width: 200px;" />
+	<div class="profile">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Hotel profile</h3>
 			</div>
-			{{ /if }}
-			<div class="media-body">
-				<div class="form-group">
-					<label for="logoInput">Hotel Logo</label>
-					<input type="file" id="logoInput">
+			<form role="form" class="form-horizontal">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-4">
+							<label for="logoInput">Hotel Logo</label>
+                            {{ #if currentUser.profile.logo }}
+								<div class="btn-file">
+									<img class="thumbnail" src="{{ currentUser.profile.logo }}" style="width: 100%;"/>
+									<input type="file" id="logoInput">
+								</div>
+                            {{ else }}
+								<button class="btn btn-default btn-file">
+									Upload logo
+									<input type="file" id="logoInput">
+								</button>
+							{{ /if }}
+						</div>
+						<div class="col-sm-8">
+							<label for="logoInput">Hotel cover</label>
+                            {{ #if currentUser.profile.cover }}
+								<div class="btn-file">
+									<img class="thumbnail" src="{{ currentUser.profile.cover }}" style="width: 100%;"/>
+									<input type="file" id="coverInput">
+								</div>
+							{{ else }}
+								<button class="btn btn-default btn-file">
+									Upload cover
+									<input type="file" id="coverInput">
+								</button>
+							{{ /if }}
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label for="nameInput" class="col-sm-4 control-label">Hotel name</label>
+
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="nameInput" placeholder="Enter hotel name"
+								   value="{{ currentUser.profile.name }}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="descriptionInput" class="col-sm-4 control-label">Hotel description</label>
+
+						<div class="col-sm-8">
+							<textarea class="form-control" id="descriptionInput"
+									  placeholder="Enter hotel description">{{ currentUser.profile.description }}</textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="addressInput" class="col-sm-4 control-label">Hotel address</label>
+
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="addressInput" placeholder="Enter hotel address"
+								   value="{{ currentUser.profile.address }}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="directionsInput" class="col-sm-4 control-label">Hotel directions</label>
+
+						<div class="col-sm-8">
+							<textarea class="form-control" id="directionsInput"
+									  placeholder="Enter how to get to hotel">{{ currentUser.profile.directions }}</textarea>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="media">
-			{{ #if currentUser.profile.cover }}
-			<div class="media-left">
-				<img class="thumbnail" src="{{ currentUser.profile.cover }}" style="max-width: 200px;" />
-			</div>
-			{{ /if }}
-			<div class="media-body">
-				<div class="form-group">
-					<label for="coverInput">Hotel cover</label>
-					<input type="file" id="coverInput">
+				<div class="panel-footer">
+					<button type="submit" class="btn btn-primary">Save</button>
+					<a class="btn btn-default" href="{{ hotelLink }}" target="_blank">Preview</a>
 				</div>
-			</div>
+			</form>
 		</div>
-		<div class="form-group">
-			<label for="descriptionInput">Hotel description</label>
-			<textarea class="form-control" id="descriptionInput" placeholder="Enter hotel description">{{ currentUser.profile.description }}</textarea>
-		</div>
-		<div class="form-group">
-			<label for="addressInput">Hotel address</label>
-			<input type="text" class="form-control" id="addressInput" placeholder="Enter hotel address" value="{{ currentUser.profile.address }}">
-		</div>
-		<div class="form-group">
-			<label for="directionsInput">Hotel directions</label>
-			<textarea class="form-control" id="directionsInput" placeholder="Enter how to get to hotel">{{ currentUser.profile.directions }}</textarea>
-		</div>
-		<button type="submit" class="btn btn-default">Submit</button>
-	</form>
-	Your hotel link is: <a href="{{ hotelLink }}" target="_blank">{{ hotelLink }}</a>
+	</div>
 </template>
