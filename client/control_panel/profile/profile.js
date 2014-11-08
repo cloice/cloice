@@ -33,10 +33,10 @@ if (Meteor.isClient) {
 				coverReader.readAsDataURL(coverFile);
 			}
 			var userData = {};
-			userData['name'] = template.find('#nameInput').value;
-			userData['description'] = template.find('#descriptionInput').value;
-			userData['address'] = template.find('#addressInput').value;
-			Meteor.users.update({_id: Meteor.userId()}, {$set: {profile: userData}});
+			userData['profile.name'] = template.find('#nameInput').value;
+			userData['profile.description'] = template.find('#descriptionInput').value;
+			userData['profile.address'] = template.find('#addressInput').value;
+			Meteor.users.update({_id: Meteor.userId()}, {$set: userData});
 		}
 	});
 }
