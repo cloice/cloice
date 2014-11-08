@@ -24,7 +24,7 @@ Template.guests.events({
 		var formElements = guestForm.elements,
 			guest = {};
 
-		guest.id = formElements['id'].value;
+		guest.id = Session.get('guestId');
 		guest.firstName = formElements['first-name'].value;
 		guest.lastName = formElements['last-name'].value;
 		guest.email = formElements['email'].value;
@@ -32,12 +32,7 @@ Template.guests.events({
 		guest.departure = new Date(formElements['departure'].value);
 		guest.userId = Meteor.userId();
 
-		// for(var key in guest) {
-		// 	if(guest.hasOwnProperty(key) && guest[key].length) {
-		// 		return false;
-		// 	}
-		// }
-		if(typeof guest.id === Number && guest.id > 0)
+		if(guest.id)
 			Guests.update({
 				'_id': guest.id
 			}, {
@@ -54,7 +49,7 @@ Template.guests.events({
 		}
 
 		Session.set('guestId', null);
-
+		guestForm.reset();
 		return false;
 	},
 	'click .edit': function(e) {

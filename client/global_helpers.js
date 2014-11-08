@@ -7,12 +7,16 @@ function addLeadingZero(num) {
 }
 
 UI.registerHelper('formatDateTime', function(date) {
-	var month = date.getMonth(),
-		day = date.getDay(),
+	date = new Date(date);
+	var month = date.getMonth() + 1,
+		day = date.getDate(),
 		year = date.getFullYear();
 	return addLeadingZero(month) + '/' + addLeadingZero(day) + '/' + year;
 });
 
 UI.registerHelper('dateToDateInputString', function(date) {
-	return date.getFullYear() + '-' + addLeadingZero(date.getMonth()) + '-' + addLeadingZero(date.getDate());
+	if(typeof date === Date)
+		return date.getFullYear() + '-' + addLeadingZero(date.getMonth() + 1) + '-' + addLeadingZero(date.getDate());
+	else
+		return '';
 });
