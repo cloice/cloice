@@ -1,3 +1,11 @@
+Router.onBeforeAction(function() {
+	if (!Meteor.userId()) {
+		this.render('landingPage');
+	} else {
+		this.next();
+	}
+});
+
 Router.route('/', function () {
 	this.render('main');
 });
