@@ -1,0 +1,43 @@
+#landing-page {
+	min-height: 100vh;
+	height: 100vh;
+	padding-top: 70px;
+
+	&::after {
+		content: "";
+		background-image: url('landing-cover.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		opacity: 0.8;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		position: absolute;
+		z-index: -1;   
+	}
+
+	.logo-container {
+		text-align: center;
+	}
+
+	#logo {
+		width: 80%;
+		opacity: 0.5;
+		margin-bottom: 20px;
+	}
+
+	.well {
+		background: rgba(0, 0, 0, 0.4);
+		border: none;
+		color: #fff;
+
+		a {
+			color: #8A460E;
+
+			&:hover {
+				color: #A86E3E;
+			};
+		}
+	}
+}
