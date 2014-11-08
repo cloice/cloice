@@ -1,29 +1,38 @@
 <template name="offers">
-	{{#with offer}}
-	<form role="form" id="offerForm">
-		<div class="form-group">
-			<label for="title">Title</label>
-			<input type="text" id="title" class="form-control" placeholder="Offer title" value="{{title}}"/>
+	<div class="row">
+		<div class="panel col-xs-12 col-md-6 col-md-push-3 panel-default no-paddings">
+			<div class="panel-heading">
+				<h3 class="panel-title">Offer form</h3>
+			</div>
+			<div class="panel-body">
+				{{#with offer}}
+				<form role="form" id="offerForm">
+					<div class="form-group">
+						<label for="title">Title</label>
+						<input type="text" id="title" class="form-control" placeholder="Offer title" value="{{title}}"/>
+					</div>
+					<div class="form-group">
+						<label for="price">Price</label>
+						<input type="text" id="price" class="form-control" placeholder="Offer title" value="{{title}}"/>
+					</div>
+					<div class="form-group">
+						<label for="start-date">Start date</label>
+						<input type="date" id="start-date" class="form-control" value="{{dateToDateInputString startDate}}"/>
+					</div>
+					<div class="form-group">
+						<label for="end-date">End date</label>
+						<input type="date" id="end-date" class="form-control" value="{{dateToDateInputString endDate}}"/>
+					</div>
+					<div class="form-group">
+						<label for="description">Description</label>
+						<textarea id="description" class="form-control" placeholder="Description">{{description}}</textarea>
+					</div>
+					<button class="btn btn-default save">Save</button>
+				</form>
+				{{ /with }}
+			</div>
 		</div>
-		<div class="form-group">
-			<label for="price">Price</label>
-			<input type="text" id="price" class="form-control" placeholder="Offer title" value="{{title}}"/>
-		</div>
-		<div class="form-group">
-			<label for="start-date">Start date</label>
-			<input type="date" id="start-date" class="form-control" value="{{dateToDateInputString startDate}}"/>
-		</div>
-		<div class="form-group">
-			<label for="end-date">End date</label>
-			<input type="date" id="end-date" class="form-control" value="{{dateToDateInputString endDate}}"/>
-		</div>
-		<div class="form-group">
-			<label for="description">Description</label>
-			<textarea id="description" class="form-control" placeholder="Description">{{description}}</textarea>
-		</div>
-		<button class="btn btn-default save">Save</button>
-	</form>
-	{{ /with }}
+	</div>
 	{{ #each offersList }}
 	<div class="row offers-list">
 		<div class="col-xs-12 col-sm-4 col-md-3">
