@@ -4,16 +4,6 @@ Template.guests.helpers({
 			'userId': Meteor.userId()
 		}).fetch();
 	},
-	'tempGuest': function() {
-		return {
-			id: 0,
-			firstName: '',
-			lastName: '',
-			email: '',
-			arrival: '',
-			departure: ''
-		}
-	},
 	guest: function() {
 		return Guests.findOne(Session.get('guestId')) || {};
 	}
@@ -41,7 +31,7 @@ Template.guests.events({
 				email: guest.email,
 				arrival: guest.arrival,
 				departure: guest.departure,
-				'userId': guest.userId
+				userId: guest.userId
 			});
 		else {
 			delete guest.id;

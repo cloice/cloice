@@ -20,3 +20,7 @@ UI.registerHelper('dateToDateInputString', function(date) {
 	else
 		return '';
 });
+
+UI.registerHelper('fitString', function(string, maxSymbols) {
+	return string.length > maxSymbols ? string.substr(0, maxSymbols - 3) + '...' : string;
+});
