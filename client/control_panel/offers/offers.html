@@ -44,7 +44,9 @@
 		{{ #each offersList }}
 		<div class="col-xs-12 col-sm-4 col-md-3">
 			<div class="thumbnail">
+				{{ #if image }}
 				<img src="{{image}}" alt="...">
+				{{ /if }}
 				<div class="caption">
 					<h3 title="{{title}}">{{fitString title 30 }}<small class="pull-right">$ {{price}}</small></h3>
 					<p title="{{description}}">{{ fitString description 165}}</p>
