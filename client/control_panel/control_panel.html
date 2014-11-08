@@ -1,14 +1,24 @@
 <template name="controlPanel">
-	<header class="container">
-		<div class="row">
-			<div class="col-xs-2">
-				<img src="" alt="logo"/>
-			</div>
-			<div class="col-xs-10">
-				<h1>Hotel "California"</h1>
+	<header>
+		<div class="container">
+			<div class="row hotel-info">
+				<div class="col-xs-2">
+					<img class="hotel-logo" src={{ currentUser.profile.logo }} alt="logo"/>
+				</div>
+				<div class="col-xs-10">
+					<h1>{{ currentUser.profile.name }}</h1>
+				</div>
 			</div>
 		</div>
 	</header>
+	<nav>
+		<div class="container navigation-bar">
+			<a href="/control-panel">Guests</a>
+			<a href="/control-panel/offers">Offers</a>
+			<a href="/control-panel/profile">Profiles</a>
+			<a href="/" class="logout-btn">Log out</a>
+		</div>
+	</nav>
 	<div class="control-panel container">
 		{{> yield }}
 	</div>
