@@ -12,5 +12,6 @@ underscore
 iron:router
 mizzao:bootstrap-3
 accounts-password
-ian:accounts-ui-bootstrap-3
 useraccounts:bootstrap
+email
+
