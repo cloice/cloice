@@ -2,6 +2,20 @@
 	{{#with offer}}
 	<form role="form" id="offerForm">
 		<div class="form-group">
+			<label for="title">Image</label>
+			{{ #if image }}
+				<div class="btn-file">
+					<img class="thumbnail" src="{{ image }}" style="width: 100%;"/>
+					<input type="file" id="image">
+				</div>
+			{{ else }}
+				<button class="btn btn-default btn-file">
+					Upload image
+					<input type="file" id="image">
+				</button>
+			{{ /if }}
+		</div>
+		<div class="form-group">
 			<label for="title">Title</label>
 			<input type="text" id="title" class="form-control" placeholder="Offer title" value="{{title}}"/>
 		</div>
