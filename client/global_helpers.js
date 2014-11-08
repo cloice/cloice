@@ -15,7 +15,7 @@ UI.registerHelper('formatDateTime', function(date) {
 });
 
 UI.registerHelper('dateToDateInputString', function(date) {
-	if(typeof date === Date)
+	if(date)
 		return date.getFullYear() + '-' + addLeadingZero(date.getMonth() + 1) + '-' + addLeadingZero(date.getDate());
 	else
 		return '';
