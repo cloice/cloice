@@ -1,5 +1,3 @@
-SSR.compileTemplate('infoEmail', Assets.getText('info_email.html'));
-
 Meteor.methods({
 	sendInfoEmail: function(guestId) {
 		this.unblock();
@@ -10,11 +8,19 @@ Meteor.methods({
 MailManager = {
 	sendInfoEmail: function(guestId) {
 		var guest = Guests.findOne(guestId),
-			subject = 'Hey!',
-			html = SSR.render('infoEmail', {
-				firstName: 'John', 
-				lastName: 'Anderson'
-			});
+			subject = 'Hello!',
+			html;
+
+		var hotel = Meteor.users.findOne(this.userId);
+		var offers = Offers.find({user_id: hotel._id});
+
+		var templateObj = {
+			hotel_name: hotel.profile.name,
+			hotel_url: Meteor.absoluteUrl() + '/hotel/' + hotel._id,
+			offers: offers
+		}
+
+		html = Handlebars.templates['info_email'](templateObj);
 
 		if (guest && guest.email) {
 			Email.send({

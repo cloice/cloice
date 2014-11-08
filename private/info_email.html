@@ -1,2 +1,11 @@
-<p>This is test info email</p>
-<p style="color: red">{{firstName}} {{lastName}}</p>
+<h1>{{hotel_name}} welcomes you</h1>
+<h3>Our page: {{hotel_url}}</h3>
+
+<h2>Our offers:</h2>
+
+{{#each offers}}
+	<h3>{{title}}</h3>
+	<p>{{description}}</p>
+	<p>{{price}}</p>
+	</br>
+{{/each}}

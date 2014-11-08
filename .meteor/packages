@@ -14,5 +14,5 @@ mizzao:bootstrap-3
 accounts-password
 useraccounts:bootstrap
 email
-meteorhacks:ssr
+cmather:handlebars-server
 
