@@ -22,6 +22,15 @@ Template.offers.events({
 		offer.endDate = new Date(formElements['end-date'].value);
 		offer.userId = Meteor.userId();
 
+		if (formElements['image'].files.length) {
+			var imageFile = formElements['image'].files[0];
+			var imageReader = new FileReader();
+			imageReader.onload = function (e) {
+				Offers.update({_id: offer.id}, {$set: {'image': e.target.result}});
+			};
+			imageReader.readAsDataURL(imageFile);
+		}
+
 		if(offer.id)
 			Offers.update({
 				'_id': offer.id
