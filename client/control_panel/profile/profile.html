@@ -2,23 +2,26 @@
 	<form role="form">
 		<div class="form-group">
 			<label for="nameInput">Hotel name</label>
-			<input type="text" class="form-control" id="nameInput" placeholder="Enter hotel name">
+			<input type="text" class="form-control" id="nameInput" placeholder="Enter hotel name" value="{{ currentUser.profile.name }}">
 		</div>
 		<div class="form-group">
 			<label for="logoInput">Hotel Logo</label>
+			<img class="thumbnail" src="{{ currentUser.profile.logo }}"/>
 			<input type="file" id="logoInput">
 		</div>
 		<div class="form-group">
 			<label for="coverInput">Hotel cover</label>
+			<img class="thumbnail" src="{{ currentUser.profile.cover }}"/>
 			<input type="file" id="coverInput">
 		</div>
 		<div class="form-group">
 			<label for="descriptionInput">Hotel description</label>
-			<textarea class="form-control" id="descriptionInput" placeholder="Enter hotel description"></textarea>
+			<textarea class="form-control" id="descriptionInput" placeholder="Enter hotel description">{{ currentUser.profile.description }}</textarea>
 		</div>
 		<div class="form-group">
 			<label for="addressInput">Hotel address</label>
-			<input type="text" class="form-control" id="addressInput" placeholder="Enter hotel address">
+			<input type="text" class="form-control" id="addressInput" placeholder="Enter hotel address" value="{{ currentUser.profile.address }}">
 		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
 	</form>
 </template>
