@@ -1,4 +1,4 @@
-Template.guests.events({
+Template.controlPanel.events({
 	'click .logout-btn': function() {
 		Meteor.logout();
 	}

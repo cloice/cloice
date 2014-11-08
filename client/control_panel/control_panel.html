@@ -1,16 +1,26 @@
 <template name="controlPanel">
-	<header>
-		<div class="container">
-			<div class="row hotel-info">
-				<div class="col-xs-2">
-					<img class="hotel-logo" src={{ currentUser.profile.logo }} alt="logo"/>
-				</div>
-				<div class="col-xs-10">
-					<h1>{{ currentUser.profile.name }}</h1>
+	{{#with currentUser.profile}}
+		<header>
+			<div class="container">
+				<div class="row hotel-info">
+					<div class="col-xs-2">
+						{{#if logo}}
+							<img class="hotel-logo" src={{ currentUser.profile.logo }} alt="logo"/>
+						{{/if}}
+					</div>
+					<div class="col-xs-10">
+						<h1>
+							{{#if name}} 
+								{{ name }} 
+							{{else}}
+								Your Hotel name here
+							{{/if}}
+						</h1>
+					</div>
 				</div>
 			</div>
-		</div>
-	</header>
+		</header>
+	{{/with}}
 	<nav>
 		<div class="container navigation-bar">
 			<a href="/control-panel">Guests</a>
