@@ -1,8 +1,10 @@
 <template name="presentationPage">
 	<div class="presentation-page">
 		<div class="cover" style="background-image: url({{ currentUser.profile.cover }});">
-			<div class="logo" style="background-image: url({{ currentUser.profile.logo }});"></div>
-			<h1 class="name">{{ hotel.profile.name }}</h1>
+			<div class="header">
+				<div class="logo" style="background-image: url({{ currentUser.profile.logo }});"></div>
+				<h1 class="name">{{ hotel.profile.name }}</h1>
+			</div>
 		</div>
 		<div class="container">
 			<p>{{ hotel.profile.description }}</p>
