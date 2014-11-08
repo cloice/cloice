@@ -24,3 +24,8 @@ Router.route('/control-panel/profile', function () {
 	this.layout('controlPanel');
 	this.render('profile');
 });
+
+Router.route('/hotel/:hotelId', function () {
+	var userModel = Meteor.users.findOne(this.params.hotelId);
+	this.render('presentation-page', {data: {hotel: userModel}});
+});
