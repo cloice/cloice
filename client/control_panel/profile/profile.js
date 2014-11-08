@@ -36,6 +36,7 @@ if (Meteor.isClient) {
 			userData['profile.name'] = template.find('#nameInput').value;
 			userData['profile.description'] = template.find('#descriptionInput').value;
 			userData['profile.address'] = template.find('#addressInput').value;
+			userData['profile.directions'] = template.find('#directionsInput').value;
 			Meteor.users.update({_id: Meteor.userId()}, {$set: userData});
 		}
 	});
