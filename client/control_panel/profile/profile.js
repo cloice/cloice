@@ -1,4 +1,27 @@
 if (Meteor.isClient) {
+
+	var gMap, gGeocoder, gMarker;
+
+	Template.profile.rendered = function () {
+		gMap = new google.maps.Map(document.getElementById('map-canvas'), {
+			center: {lat: 0, lng: 0},
+			zoom: 1
+		});
+		gGeocoder = new google.maps.Geocoder();
+
+		this.autorun(function () {
+			var userModel = Meteor.user();
+			if (userModel && userModel.profile && userModel.profile.location) {
+				var location = new google.maps.LatLng(userModel.profile.location.lat, userModel.profile.location.lng);
+				gMap.setCenter(location);
+				gMap.setZoom(16);
+				gMarker = new google.maps.Marker({
+					map: gMap,
+					position: location
+				});
+			}
+		});
+	};
 	Template.profile.helpers({
 		logo: function () {
 			var userModel = Meteor.users.findOne(Meteor.userId());
@@ -12,7 +35,7 @@ if (Meteor.isClient) {
 				return userModel.profile.cover;
 			}
 		},
-		hotelLink: function(){
+		hotelLink: function () {
 			return location.origin + '/hotel/' + Meteor.userId();
 		}
 	});
@@ -41,7 +64,33 @@ if (Meteor.isClient) {
 			userData['profile.address'] = template.find('#addressInput').value;
 			userData['profile.directions'] = template.find('#directionsInput').value;
 			Meteor.users.update({_id: Meteor.userId()}, {$set: userData, $unset: {'profile.profileSetupRequired': ''}});
+			gGeocoder.geocode({'address': template.find('#addressInput').value}, function (results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					Meteor.users.update({_id: Meteor.userId()}, {
+						$set: {
+							'profile.location.lat': results[0].geometry.location.lat(),
+							'profile.location.lng': results[0].geometry.location.lng()
+						}
+					});
+				}
+			});
 			return false;
+		},
+		'keyup #addressInput': function (e) {
+			gGeocoder.geocode({'address': e.currentTarget.value}, function (results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					gMap.setCenter(results[0].geometry.location);
+					gMap.setZoom(16);
+					if (!gMarker) {
+						gMarker = new google.maps.Marker({
+							map: gMap,
+							position: results[0].geometry.location
+						});
+					} else {
+						gMarker.setPosition(results[0].geometry.location);
+					}
+				}
+			});
 		}
 	});
 }

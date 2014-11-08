@@ -7,9 +7,20 @@
 			</div>
 		</div>
 		<div class="container">
-			<p>{{ hotel.profile.description }}</p>
-			<p>{{ hotel.profile.address }}</p>
-			<p>{{ hotel.profile.directions }}</p>
+			<div class="row">
+				<div class="col-xs-12">
+					<p>{{ hotel.profile.description }}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4">
+					<div id="map-canvas"></div>
+				</div>
+				<div class="col-xs-8">
+					<p>{{ hotel.profile.address }}</p>
+					<p>{{ hotel.profile.directions }}</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
