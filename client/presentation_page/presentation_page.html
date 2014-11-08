@@ -1,10 +1,13 @@
 <template name="presentationPage">
-	<div class="jumbotron">
-        <img src="{{ currentUser.profile.logo }}">
-		<h1>{{ hotel.profile.name }}</h1>
-		<p>{{ hotel.profile.description }}</p>
-		<img src="{{ currentUser.profile.cover }}">
+	<div class="presentation-page">
+		<div class="cover" style="background-image: url({{ currentUser.profile.cover }});">
+			<div class="logo" style="background-image: url({{ currentUser.profile.logo }});"></div>
+			<h1 class="name">{{ hotel.profile.name }}</h1>
+		</div>
+		<div class="container">
+			<p>{{ hotel.profile.description }}</p>
+			<p>{{ hotel.profile.address }}</p>
+			<p>{{ hotel.profile.directions }}</p>
+		</div>
 	</div>
-    <p>{{ hotel.profile.address }}</p>
-    <p>{{ hotel.profile.directions }}</p>
 </template>
