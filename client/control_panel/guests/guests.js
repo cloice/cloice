@@ -45,7 +45,11 @@ Template.guests.events({
 			});
 		else {
 			delete guest.id;
-			Guests.insert(guest);
+			Guests.insert(guest, function(err, _id) {
+				if (!err) {
+					Meteor.call('sendInfoEmail', _id);
+				}
+			});
 		}
 
 		Session.set('guestId', null);
