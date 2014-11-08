@@ -11,11 +11,10 @@ Router.route('/', function () {
 });
 
 Router.route('/control-panel', function () {
-	this.layout('controlPanel');
 	if (Meteor.user() && Meteor.user().profile.profileSetupRequired) {
-		this.render('profile');
+		this.redirect('/control-panel/profile');
 	} else {
-		this.render('guests');
+		this.redirect('/control-panel/guests');
 	}
 });
 
