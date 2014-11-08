@@ -24,3 +24,7 @@ UI.registerHelper('dateToDateInputString', function(date) {
 UI.registerHelper('fitString', function(string, maxSymbols) {
 	return string.length > maxSymbols ? string.substr(0, maxSymbols - 3) + '...' : string;
 });
+
+UI.registerHelper('highlightNavigation', function(route) {
+	return Router.current().route.getName() === route ? 'active' : '';
+});
