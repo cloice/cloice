@@ -38,6 +38,11 @@
 			<label for="addressInput">Hotel address</label>
 			<input type="text" class="form-control" id="addressInput" placeholder="Enter hotel address" value="{{ currentUser.profile.address }}">
 		</div>
+		<div class="form-group">
+			<label for="directionsInput">Hotel directions</label>
+			<textarea class="form-control" id="directionsInput" placeholder="Enter how to get to hotel">{{ currentUser.profile.directions }}</textarea>
+		</div>
 		<button type="submit" class="btn btn-default">Submit</button>
 	</form>
+	Your hotel link is: <a href="{{ hotelLink }}" target="_blank">{{ hotelLink }}</a>
 </template>

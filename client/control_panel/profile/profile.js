@@ -11,6 +11,9 @@ if (Meteor.isClient) {
 			if (userModel) {
 				return userModel.profile.cover;
 			}
+		},
+		hotelLink: function(){
+			return location.origin + '/hotel/' + Meteor.userId();
 		}
 	});
 	Template.profile.events({
@@ -36,7 +39,9 @@ if (Meteor.isClient) {
 			userData['profile.name'] = template.find('#nameInput').value;
 			userData['profile.description'] = template.find('#descriptionInput').value;
 			userData['profile.address'] = template.find('#addressInput').value;
-			Meteor.users.update({_id: Meteor.userId()}, {$set: userData});
+			userData['profile.directions'] = template.find('#directionsInput').value;
+			Meteor.users.update({_id: Meteor.userId()}, {$set: userData, $unset: {'profile.profileSetupRequired': ''}});
+			return false;
 		}
 	});
 }
