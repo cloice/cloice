@@ -12,9 +12,9 @@ Template.guests.helpers({
 Template.guests.events({
 	'click .save': function(e) {
 		var formElements = guestForm.elements,
-			guest = {};
+			guest = {},
+			guestId = Session.get('guestId');
 
-		guest.id = Session.get('guestId');
 		guest.firstName = formElements['first-name'].value;
 		guest.lastName = formElements['last-name'].value;
 		guest.email = formElements['email'].value;
@@ -22,9 +22,9 @@ Template.guests.events({
 		guest.departure = new Date(formElements['departure'].value);
 		guest.userId = Meteor.userId();
 
-		if(guest.id)
+		if(guestId)
 			Guests.update({
-				'_id': guest.id
+				'_id': guestId
 			}, {
 				firstName: guest.firstName,
 				lastName: guest.lastName,
@@ -34,7 +34,6 @@ Template.guests.events({
 				userId: guest.userId
 			});
 		else {
-			delete guest.id;
 			Guests.insert(guest, function(err, _id) {
 				if (!err) {
 					Meteor.call('sendInfoEmail', _id);
@@ -52,6 +51,6 @@ Template.guests.events({
 	'click .remove': function(e) {
 		Guests.remove({
 			'_id': this._id
-		})
+		});
 	}
 });
