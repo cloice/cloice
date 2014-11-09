@@ -22,33 +22,38 @@ Template.offers.events({
 		offer.endDate = new Date(formElements['end-date'].value);
 		offer.userId = Meteor.userId();
 
-		if (formElements['image'].files.length) {
-			var imageFile = formElements['image'].files[0];
-			var imageReader = new FileReader();
-			imageReader.onload = function (e) {
-				Offers.update({_id: offer.id}, {$set: {'image': e.target.result}});
-			};
-			imageReader.readAsDataURL(imageFile);
-		}
-
 		if(offer.id)
 			Offers.update({
 				'_id': offer.id
 			}, {
-				title: offer.title,
-				description: offer.description,
-				price: offer.price,
-				startDate: offer.startDate,
-				endDate: offer.endDate,
-				userId: offer.userId
+				$set: {
+					title: offer.title,
+					description: offer.description,
+					price: offer.price,
+					startDate: offer.startDate,
+					endDate: offer.endDate,
+					userId: offer.userId
+				}
 			});
 		else {
 			delete offer.id;
-			Offers.insert(offer);
+			Session.set('offerId', Offers.insert(offer));
+		}
+
+		if (formElements['image'].files.length) {
+			var imageFile = formElements['image'].files[0],
+				imageReader = new FileReader(),
+				offerId = Session.get('offerId');
+
+			imageReader.onload = function (e) {
+				Offers.update({_id: offerId}, {$set: {'image': e.target.result}});
+			};
+			imageReader.readAsDataURL(imageFile);
 		}
 
 		Session.set('offerId', null);
 		offerForm.reset();
+		$('#imageThumbnail').removeAttr('src');
 		return false;
 	},
 	'click .edit': function(e) {
@@ -58,5 +63,13 @@ Template.offers.events({
 		Offers.remove({
 			'_id': this._id
 		})
+	},
+	'change #image': function(e) {
+		var imageFile = e.currentTarget.files[0],
+			imageReader = new FileReader();
+		imageReader.onload = function (e) {
+			$('#imageThumbnail').attr('src', e.target.result);
+		};
+		imageReader.readAsDataURL(imageFile);
 	}
 });

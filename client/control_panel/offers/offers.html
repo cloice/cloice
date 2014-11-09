@@ -10,18 +10,9 @@
 					<form role="form" id="offerForm">
 						<div class="form-group">
 							<label for="title">Image</label>
-							<div>
-								{{ #if image }}
-									<div class="btn-file">
-										<img class="thumbnail" src="{{ image }}" style="width: 100%;"/>
-										<input type="file" id="image">
-									</div>
-								{{ else }}
-									<button class="btn btn-default btn-file">
-										Upload image
-										<input type="file" id="image">
-									</button>
-								{{ /if }}
+							<div class="btn-file">
+								<img class="thumbnail" id="imageThumbnail" alt="Upload image" src="{{ image }}" style="width: 100%;"/>
+								<input type="file" id="image">
 							</div>
 						</div>
 						<div class="form-group">
