@@ -1,22 +1,22 @@
 Meteor.methods({
 	sendInfoEmail: function(guestId) {
 		this.unblock();
-		MailManager.sendInfoEmail(guestId);
+		MailManager.sendInfoEmail(this.userId, guestId);
 	}
 });
 
 MailManager = {
-	sendInfoEmail: function(guestId) {
+	sendInfoEmail: function(hotelId, guestId) {
 		var guest = Guests.findOne(guestId),
 			subject = 'Hello!',
 			html;
 
-		var hotel = Meteor.users.findOne(this.userId);
-		var offers = Offers.find({user_id: hotel._id});
+		var hotel = Meteor.users.findOne(hotelId);
+		var offers = Offers.find({userId: hotel._id}).fetch();
 
 		var templateObj = {
 			hotel_name: hotel.profile.name,
-			hotel_url: Meteor.absoluteUrl() + '/hotel/' + hotel._id,
+			hotel_url: Meteor.absoluteUrl() + 'hotel/' + hotel._id,
 			offers: offers
 		}
 

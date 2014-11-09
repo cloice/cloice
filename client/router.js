@@ -4,6 +4,8 @@ Router.onBeforeAction(function() {
 	} else {
 		this.next();
 	}
+}, { 
+	except: ['hotelPage'] 
 });
 
 Router.route('/', function () {	
@@ -33,7 +35,10 @@ Router.route('/control-panel/profile', function () {
 	this.render('profile');
 });
 
-Router.route('/hotel/:hotelId', function () {
-	var userModel = Meteor.users.findOne(this.params.hotelId);
-	this.render('presentation-page', {data: {hotel: userModel}});
+Router.route('/hotel/:hotelId', {
+	name: 'hotelPage', 
+	action: function () {
+		var userModel = Meteor.users.findOne(this.params.hotelId);
+		this.render('presentation-page', {data: {hotel: userModel, hotelId: this.params.hotelId}});
+	}
 });
