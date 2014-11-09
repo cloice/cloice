@@ -15,7 +15,5 @@ accounts-password
 useraccounts:bootstrap
 email
 cmather:handlebars-server
-meteorhacks:npm
 
 
-npm-container
