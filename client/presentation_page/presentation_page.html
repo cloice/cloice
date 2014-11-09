@@ -58,7 +58,7 @@
 					<div class="col-xs-8">
 						<div class="cover" style="background-image: url({{ currentUser.profile.cover }});"></div>
 					</div>
-					<div class="col-xs-4">
+					<div class="col-xs-4" style="text-align: center;">
 						<h1 class="title">{{ hotel.profile.name }}</h1>
 						<img class="logo" src="{{ currentUser.profile.logo }}"/>
 					</div>
@@ -107,7 +107,12 @@
 		</section>
 		<footer>
 			<div class="container">
-
+				<div class="directions">
+					<h2>How to get to {{ hotel.profile.name }}</h2>
+					<div class="directions">
+						${{directions}}
+					</div>
+				</div>
 			</div>
 		</footer>
 	</div>
