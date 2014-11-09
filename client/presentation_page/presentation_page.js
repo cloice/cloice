@@ -22,4 +22,11 @@ if (Meteor.isClient) {
 			}
 		});
 	};
+
+
+	Template.presentationPage.helpers({
+		offersList: function() {
+			return Offers.find({ 'userId': Meteor.userId() }).fetch() || [];
+		}
+	});
 }
