@@ -36,17 +36,6 @@ MailManager = {
 				subject: subject,
 				html: html
 			});	
-
-
-// 			var transporter = nodemailer.createTransport({
-// 			service: 'SES' // <- resolved as 'Postmark' from the wellknown info
-// 			auth: {
-// 				user:
-// 				pass:
-// 			}
-// });
-
-
 		}
 	}
 };
