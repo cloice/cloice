@@ -15,7 +15,8 @@
 									<input type="file" id="logoInput">
 								</div>
                             {{ else }}
-								<button class="btn btn-default btn-file">
+								<img class="thumbnail" id="logoThumbnail" style="width: 100%; display: none;"/>
+								<button class="btn btn-default btn-file" id="logoButton">
 									Upload logo
 									<input type="file" id="logoInput">
 								</button>
@@ -29,7 +30,8 @@
 									<input type="file" id="coverInput">
 								</div>
 							{{ else }}
-								<button class="btn btn-default btn-file">
+								<img class="thumbnail" id="coverThumbnail" style="width: 100%; display: none;"/>
+								<button class="btn btn-default btn-file" id="coverButton">
 									Upload cover
 									<input type="file" id="coverInput">
 								</button>
