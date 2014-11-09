@@ -6,6 +6,9 @@ Template.guests.helpers({
 	},
 	guest: function() {
 		return Guests.findOne(Session.get('guestId')) || {};
+	},
+	activeRow: function() {
+		return Session.equals('guestId', this._id);
 	}
 });
 

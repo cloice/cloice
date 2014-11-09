@@ -2,11 +2,11 @@
 	<div class="profile">
 		<div class="panel col-xs-12 col-md-8 col-md-push-2 no-paddings panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Hotel profile</h3>
+				<h3 class="panel-title"><span class="glyphicon glyphicon-home"></span>&nbsp;Hotel Profile</h3>
 			</div>
 			<form role="form" class="form-horizontal">
 				<div class="panel-body">
-					<div class="row">
+					<div class="row form-group">
 						<div class="col-sm-4">
 							<label for="logoInput">Hotel Logo</label>
 							<div class="btn-file">
@@ -15,17 +15,15 @@
 							</div>
 						</div>
 						<div class="col-sm-8">
-							<label for="logoInput">Hotel cover</label>
+							<label for="logoInput">Hotel Cover</label>
 							<div class="btn-file">
 								<img class="thumbnail" id="coverThumbnail" alt="Upload cover" src="{{ currentUser.profile.cover }}" style="width: 100%;"/>
 								<input type="file" id="coverInput">
 							</div>
 						</div>
 					</div>
-
-
 					<div class="form-group">
-						<label for="nameInput" class="col-sm-4 control-label">Hotel name</label>
+						<label for="nameInput" class="col-sm-4 control-label">Hotel Name</label>
 
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="nameInput" placeholder="Enter hotel name"
@@ -33,7 +31,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="descriptionInput" class="col-sm-4 control-label">Hotel description</label>
+						<label for="descriptionInput" class="col-sm-4 control-label">Hotel Description</label>
 
 						<div class="col-sm-8">
 							<textarea class="form-control" id="descriptionInput"
@@ -41,7 +39,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="addressInput" class="col-sm-4 control-label">Hotel address</label>
+						<label for="addressInput" class="col-sm-4 control-label">Hotel Address</label>
 
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="addressInput" placeholder="Enter hotel address"
@@ -50,7 +48,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="directionsInput" class="col-sm-4 control-label">Hotel directions</label>
+						<label for="directionsInput" class="col-sm-4 control-label">Hotel Directions</label>
 
 						<div class="col-sm-8">
 							<textarea class="form-control" id="directionsInput"
@@ -59,8 +57,8 @@
 					</div>
 				</div>
 				<div class="panel-footer">
-					<button type="submit" class="btn btn-primary">Save</button>
-					<a class="btn btn-default" href="{{ hotelLink }}" target="_blank">Preview</a>
+					<button type="submit" class="btn btn-info save">Save</button>
+					<a class="btn btn-info pull-right" href="{{ hotelLink }}" target="_blank"><span class="glyphicon glyphicon-new-window"></span>&nbsp;Preview</a>
 				</div>
 			</form>
 		</div>

@@ -1,23 +1,11 @@
 <template name="controlPanel">
 	<div>
-		<!-- <div class="container navigation-bar navbar navbar-default" role="navigation">
-			<a href="/control-panel">Guests</a>
-			<a href="/control-panel/offers">Offers</a>
-			<a href="/control-panel/profile">Profile</a>
-			<a href="/" class="logout-btn">Log out</a>
-		</div> -->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
-					{{#with currentUser.profile}}
 					<span class="navbar-brand">
-						{{#if name}} 
-							{{ name }}
-						{{else}}
-							Your Hotel name here
-						{{/if}}
+						<a href="/"><img id="logo" src="/cloice.logo.png"></a>
 					</span>
-					{{/with}}
 				</div>
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -39,7 +27,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#" class="logout-btn">Log out</a></li>
 					</ul>
-					<p class="navbar-text navbar-right">Logged in as: {{loggedAsMessage}}</p>
+					<p class="navbar-text navbar-right">Signed in as {{loggedAsMessage}}</p>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
