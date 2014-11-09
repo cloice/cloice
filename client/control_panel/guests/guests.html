@@ -2,64 +2,72 @@
 	<div class="row">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Guest editing</h3>
+				<h3 class="panel-title"><span class="glyphicon glyphicon-user"></span>&nbsp;Guest</h3>
 			</div>
 			<div class="panel-body">
 				{{#with guest}}
-				<form role="form" class="form-inline" id="guestForm">
-					<div class="form-group">
-						<label class="sr-only" for="first-name">First name</label>
-						<input type="text" id="first-name" class="form-control" placeholder="First name" value="{{firstName}}"/>
+				<form role="form" id="guestForm">
+					<div class="form-group col-xs-2">
+						<label for="first-name">First Name</label>
+						<input type="text" id="first-name" class="form-control" placeholder="First Name..." value="{{firstName}}"/>
 					</div>
-					<div class="form-group">
-						<label class="sr-only" for="last-name">Last name</label>
-						<input type="text" id="last-name" class="form-control" placeholder="Last name" value="{{lastName}}"/>
+					<div class="form-group col-xs-2">
+						<label for="last-name">Last Name</label>
+						<input type="text" id="last-name" class="form-control" placeholder="Last Name..." value="{{lastName}}"/>
 					</div>
-					<div class="form-group">
-						<label class="sr-only" for="email">E-mail</label>
-						<input type="email" id="email" class="form-control" placeholder="E-mail" value="{{email}}"/>
+					<div class="form-group col-xs-2">
+						<label for="email">Email</label>
+						<input type="email" id="email" class="form-control" placeholder="Email..." value="{{email}}"/>
 					</div>
-					<div class="form-group">
-						<label class="sr-only" for="arrival">Arrival date</label>
+					<div class="form-group col-xs-2">
+						<label for="arrival">Arrival Date</label>
 						<input type="date" id="arrival" class="form-control" value="{{dateToDateInputString arrival}}"/>
 					</div>
-					<div class="form-group">
-						<label class="sr-only" for="departure">Departure date</label>
+					<div class="form-group col-xs-2">
+						<label for="departure">Departure Date</label>
 						<input type="date" id="departure" class="form-control" value="{{dateToDateInputString departure}}"/>
 					</div>
-					<button class="btn btn-default save">Save</button>
+					<div class="col-xs-2">
+						<button class="btn btn-block btn-info save">Save</button>
+					</div>
 				</form>
 				{{ /with }}
 			</div>	
 		</div>
 	</div>
-	{{ #if guestsList }}
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th>Fullname</th>
-				<th>E-mail</th>
-				<th>Arrival</th>
-				<th>Departure</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			{{ #each guestsList }}
-			<tr>
-				<td>{{ guestFullName }}</td>
-				<td>{{ email }}</td>
-				<td>{{ formatDateTime arrival }}</td>
-				<td>{{ formatDateTime departure }}</td>
-				<td>
-					<a href="" class="edit btn btn-default">Edit</a>
-					<a href="" class="remove btn btn-default">Remove</a>
-				</td>
-			</tr>
-			{{ /each }}
-		</tbody>
-	</table>
-	{{ else }}
-		<h2>Currently no guests available</h2>
-	{{ /if }}
+	<div class="row">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				{{ #if guestsList }}
+				<table class="table table-hover guests-table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Arrival</th>
+							<th>Departure</th>
+							<th class="action-buttons">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{ #each guestsList }}
+						<tr class="{{#if activeRow}}info{{/if}}">
+							<td style="width: 30%">{{ guestFullName }}</td>
+							<td style="width: 30%">{{ email }}</td>
+							<td style="width: 15%">{{ formatDateTime arrival }}</td>
+							<td style="width: 15%">{{ formatDateTime departure }}</td>
+							<td class="action-buttons" style="width: 10%">
+								<span class="glyphicon glyphicon-pencil edit"></span>
+								<span class="glyphicon glyphicon-remove remove"></span>
+							</td>
+						</tr>
+						{{ /each }}
+					</tbody>
+				</table>
+				{{ else }}
+					<span class="no-entities-dummy">Currently no guests available</span>
+				{{ /if }}
+			</div>
+		</div>
+	</div>
 </template>

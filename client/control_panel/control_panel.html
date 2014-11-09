@@ -1,11 +1,5 @@
 <template name="controlPanel">
 	<div>
-		<!-- <div class="container navigation-bar navbar navbar-default" role="navigation">
-			<a href="/control-panel">Guests</a>
-			<a href="/control-panel/offers">Offers</a>
-			<a href="/control-panel/profile">Profile</a>
-			<a href="/" class="logout-btn">Log out</a>
-		</div> -->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
@@ -14,7 +8,7 @@
 						{{#if name}} 
 							{{ name }}
 						{{else}}
-							Your Hotel name here
+							<img id="logo" src="/cloice.logo.png">
 						{{/if}}
 					</span>
 					{{/with}}
@@ -37,6 +31,7 @@
 						<li class="{{highlightNavigation 'control-panel.profile'}}"><a href="/control-panel/profile">Profile</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
+						<p class="navbar-text">Signed in as {{loggedAsMessage}}</p>
 						<li><a href="#" class="logout-btn">Log out</a></li>
 					</ul>
 					<p class="navbar-text navbar-right">Logged in as: {{loggedAsMessage}}</p>

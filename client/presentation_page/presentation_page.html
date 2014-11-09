@@ -7,24 +7,7 @@
 			<div class="logo-container-center">
 				<img class="logo" src="{{ currentUser.profile.logo }}"/>
 			</div>
-		</div><!-- 
-<<<<<<< Updated upstream
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<p>{{ hotel.profile.description }}</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-4">
-					<div id="map-canvas"></div>
-				</div>
-				<div class="col-xs-8">
-					<p>{{ hotel.profile.address }}</p>
-					<p>{{ hotel.profile.directions }}</p>
-				</div>
-			</div>
-======= -->
+		</div>
 		<div class="hotel-body">
 			<div class="description">
 				<div class="row">
@@ -34,6 +17,7 @@
 				<div class="row">
 					<h2>How to get<span class="glyphicon glyphicon-map-marker"></span></h2>
 					<p>{{ hotel.profile.address }}</p>
+					<div id="map-canvas"></div>
 				</div>
 				<div class="row">
 					<h3>Also you can: </h3>
@@ -64,6 +48,7 @@
 					</div>
 				</div>
 			</div>
+			<div id="weather"></div>
 		</div>
 	</div>
 </template>
