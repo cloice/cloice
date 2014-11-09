@@ -74,6 +74,7 @@ if (Meteor.isClient) {
 					});
 				}
 			});
+			alertify.success("Profile saved");
 			return false;
 		},
 		'keyup #addressInput': function (e) {

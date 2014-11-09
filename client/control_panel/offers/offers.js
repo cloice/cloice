@@ -57,6 +57,7 @@ Template.offers.events({
 		Session.set('offerId', null);
 		offerForm.reset();
 		$('#imageThumbnail').removeAttr('src');
+		alertify.success("Offer saved");
 		return false;
 	},
 	'click .edit': function(e) {
