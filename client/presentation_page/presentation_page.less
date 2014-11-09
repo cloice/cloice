@@ -1,82 +1,167 @@
 .presentation-page {
-	header {
-		background-position: top;
-		background-attachment: fixed;
-		background-repeat: no-repeat;
-		min-height: 250px;
-		position: relative;
+	.container {
+		max-width: 700px;
 	}
+	> header {
+		background: black;
+		padding: 20px 0 40px 0;
+		border-bottom: 10px solid #aaa;
 
-	h1, h2, h3, h4, h5 {
-		text-align: center;
-	}
-
-	.hotel-title {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		color: #FFF;
-		font-weight: bold;
-	}
-
-	.logo-wrapper {
-		height: 50px;
-		width: 100%;
-		border-top: 3px solid gray;
-		border-bottom: 3px solid gray;
-		position: relative;
-		background: rgba(250, 250, 250, 0.4);
-		text-align: center;
-		box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.4);
-		.logo-container-center {
+		.cover {
+			background-repeat: no-repeat;
+			background-size: cover;
+			min-height: 250px;
 			position: relative;
-			display: inline-block;
-			width: 125px;
-			height: 125px;
 		}
+
+		.title {
+			text-align: center;
+		}
+
 		.logo {
-			position: absolute;
-			top: -50%;
-			left: 0;
-			max-width: 100%;
-			max-height: 100%;
-			box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.4);
-			background-color: rgba(250, 250, 250, 0.9);
+
 		}
 	}
+	> section {
+		background: #ccc;
 
-	.hotel-body {
-		padding: 35px 0;
-		.description {
-			margin: 0 auto;
-			background-image: url();
-			max-width: 660px;
-			padding-bottom: 35px;
-			p {
-				font-size: 21px;
+		> .container {
+			> .description, > .map, > .offers {
+				border: 1px solid #333;
+				-webkit-box-shadow: 1px 1px 10px black;
+				-moz-box-shadow: 1px 1px 10px black;
+				box-shadow: 1px 1px 10px black;
 				text-align: center;
+				background: #eee;
+				margin-bottom: 20px;
+			}
+
+			> .description {
+				margin-top: -40px;
+				padding: 20px 80px;
+			}
+
+			> .map {
+				padding: 20px 0;
+				#map-canvas {
+					height: 200px;
+					width: 100%;
+					padding: 0;
+				}
+			}
+
+			.offers {
+				padding: 20px;
+				.offer {
+					.image {
+						background-repeat: no-repeat;
+						background-size: cover;
+						height: 125px;
+						border: 5px solid #aaa;
+					}
+					.info {
+						margin: 5px 0;
+
+						&:before,
+						&:after {
+							content: " "; // 1
+							display: table; // 2
+						}
+						&:after {
+							clear: both;
+						}
+
+						.title, .price {
+							margin: 0;
+							line-height: 30px;
+						}
+					}
+					.description {
+						text-align: left;
+					}
+				}
 			}
 		}
-	}
 
-	.offers-list {
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-
-		.thumbnail {
-			h1, h2, h3, h4, h5, p {
-				text-align: left;
-			}
-		}
 	}
-	#map-canvas {
-		height: 300px;
-		width: 100%;
-		margin: 0 0 15px 0;
-		padding: 0;
-	}
+//	header {
+//		background-position: top;
+//		background-attachment: fixed;
+//		background-repeat: no-repeat;
+//		min-height: 250px;
+//		position: relative;
+//	}
+//
+//	h1, h2, h3, h4, h5 {
+//		text-align: center;
+//	}
+//
+//	.hotel-title {
+//		position: absolute;
+//		top: 50%;
+//		left: 50%;
+//		transform: translate(-50%, -50%);
+//		color: #FFF;
+//		font-weight: bold;
+//	}
+//
+//	.logo-wrapper {
+//		height: 50px;
+//		width: 100%;
+//		border-top: 3px solid gray;
+//		border-bottom: 3px solid gray;
+//		position: relative;
+//		background: rgba(250, 250, 250, 0.4);
+//		text-align: center;
+//		box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.4);
+//		.logo-container-center {
+//			position: relative;
+//			display: inline-block;
+//			width: 125px;
+//			height: 125px;
+//		}
+//		.logo {
+//			position: absolute;
+//			top: -50%;
+//			left: 0;
+//			max-width: 100%;
+//			max-height: 100%;
+//			box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.4);
+//			background-color: rgba(250, 250, 250, 0.9);
+//		}
+//	}
+//
+//	.hotel-body {
+//		padding: 35px 0;
+//		.description {
+//			margin: 0 auto;
+//			background-image: url();
+//			max-width: 660px;
+//			padding-bottom: 35px;
+//			p {
+//				font-size: 21px;
+//				text-align: center;
+//			}
+//		}
+//	}
+//
+//	.offers-list {
+//		display: flex;
+//		justify-content: center;
+//		flex-wrap: wrap;
+//
+//		.thumbnail {
+//			h1, h2, h3, h4, h5, p {
+//				text-align: left;
+//			}
+//		}
+//	}
+//	#map-canvas {
+//		height: 300px;
+//		width: 100%;
+//		margin: 0 0 15px 0;
+//		padding: 0;
+//	}
 }
 
 @font-face {
