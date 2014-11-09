@@ -101,20 +101,18 @@
 								<div class="offer">
 									<div class="image" style="background-image: url({{image}});"></div>
 									<div class="info">
-										<h3 class="title pull-left">
-											{{fitString title 30 }}
-										</h3>
 										{{ #if price }}
 										<span class="price pull-right">
 											${{price}}
 										</span>
 										{{ /if }}
+										<h3 class="title">
+											{{fitString title 30 }}
+										</h3>
 									</div>
-									{{ #if description }}
-										<div class="description">
-											${{description}}
-										</div>
-									{{ /if }}
+									<div class="description">
+										{{description}}
+									</div>
 								</div>
 							</div>
 						{{ /each }}
