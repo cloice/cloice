@@ -13,6 +13,11 @@ MailManager = {
 
 		var hotel = Meteor.users.findOne(hotelId);
 		var offers = Offers.find({userId: hotel._id}, {limit:3}).fetch();
+		if (offers.length > 0) {
+			for (var i = 1; i <= offers.length; i++) {
+				offers[i - 1].index = i;
+			}
+		}
 
 		var templateObj = {
 			hotel_cover: hotel.profile.cover,
