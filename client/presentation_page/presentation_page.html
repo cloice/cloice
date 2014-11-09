@@ -1,54 +1,136 @@
 <template name="presentationPage">
+	<!--<div class="presentation-page">-->
+		<!--<header style="background-image: url({{ currentUser.profile.cover }});">-->
+			<!--<h1 class="hotel-title">{{ hotel.profile.name }}</h1>-->
+		<!--</header>-->
+		<!--<div class="logo-wrapper">-->
+			<!--<div class="logo-container-center">-->
+				<!--<img class="logo" src="{{ currentUser.profile.logo }}"/>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="hotel-body">-->
+			<!--<div class="description">-->
+				<!--<div class="row">-->
+					<!--<h1>Welcome!</h1>-->
+					<!--<p>{{ hotel.profile.description }}</p>-->
+				<!--</div>-->
+				<!--<div class="row">-->
+					<!--<h2>How to get<span class="glyphicon glyphicon-map-marker"></span></h2>-->
+					<!--<p>{{ hotel.profile.address }}</p>-->
+					<!--<div id="map-canvas"></div>-->
+				<!--</div>-->
+				<!--<div class="row">-->
+					<!--<h3>Also you can: </h3>-->
+					<!--<p>{{ hotel.profile.directions }}</p>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="container">-->
+				<!--<div class="row">-->
+					<!--<h2>Services we offer: </h2>-->
+					<!--<div class="offers-list">-->
+					<!--{{ #each offersList }}-->
+						<!--<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">-->
+							<!--<div class="thumbnail">-->
+								<!--{{ #if image }}-->
+								<!--<img src="{{image}}">-->
+								<!--{{ /if }}-->
+								<!--<div class="caption">-->
+									<!--<h3 title="{{title}}">{{fitString title 30 }}<small class="pull-right">$ {{price}}</small></h3>-->
+									<!--<p title="{{description}}">{{ fitString description 165}}</p>-->
+									<!--<p>-->
+										<!--<a href="#" class="btn btn-primary edit" role="button">Edit</a>-->
+										<!--<a href="#" class="btn btn-default remove" role="button">Remove</a>-->
+									<!--</p>-->
+								<!--</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--{{ /each }}-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div id="weather"></div>-->
+		<!--</div>-->
+	<!--</div>-->
 	<div class="presentation-page">
-		<header style="background-image: url({{ currentUser.profile.cover }});">
-			<h1 class="hotel-title">{{ hotel.profile.name }}</h1>
-		</header>
-		<div class="logo-wrapper">
-			<div class="logo-container-center">
-				<img class="logo" src="{{ currentUser.profile.logo }}"/>
-			</div>
-		</div>
-		<div class="hotel-body">
-			<div class="description">
-				<div class="row">
-					<h1>Welcome!</h1>
-					<p>{{ hotel.profile.description }}</p>
-				</div>
-				<div class="row">
-					<h2>How to get<span class="glyphicon glyphicon-map-marker"></span></h2>
-					<p>{{ hotel.profile.address }}</p>
-					<div id="map-canvas"></div>
-				</div>
-				<div class="row">
-					<h3>Also you can: </h3>
-					<p>{{ hotel.profile.directions }}</p>
-				</div>
-			</div>
+		<header>
 			<div class="container">
 				<div class="row">
-					<h2>Services we offer: </h2>
-					<div class="offers-list">
-					{{ #each offersList }}
-						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-							<div class="thumbnail">
-								{{ #if image }}
-								<img src="{{image}}">
-								{{ /if }}
-								<div class="caption">
-									<h3 title="{{title}}">{{fitString title 30 }}<small class="pull-right">$ {{price}}</small></h3>
-									<p title="{{description}}">{{ fitString description 165}}</p>
-									<p>
-										<a href="#" class="btn btn-primary edit" role="button">Edit</a>
-										<a href="#" class="btn btn-default remove" role="button">Remove</a>
-									</p>
-								</div>
-							</div>
-						</div>
-					{{ /each }}
+					<div class="col-xs-8">
+						<div class="cover" style="background-image: url({{ currentUser.profile.cover }});"></div>
+					</div>
+					<div class="col-xs-4" style="text-align: center;">
+						<h1 class="title">{{ hotel.profile.name }}</h1>
+						<img class="logo" src="{{ currentUser.profile.logo }}"/>
 					</div>
 				</div>
 			</div>
-			<div id="weather"></div>
-		</div>
+		</header>
+		<section>
+			<div class="container">
+				<div class="description">
+					<div class="rightEar">
+						<svg height="30px" width="15px">
+							<polygon fill="#BBB" points="0,0 15,30 0,30" ></polygon>
+						</svg>
+					</div>
+					<h2>Welcome</h2>
+					{{ hotel.profile.description }}
+				</div>
+				<div class="map">
+					<h2>How to get</h2>
+					<div class="address">
+						{{ hotel.profile.address }}
+					</div>
+					<div id="map-canvas"></div>
+					<div class="leftEar">
+						<svg height="200px" width="50px">
+							<polygon fill="#87a55f" points="0,0 50,0 50,200 0,200 25,100" ></polygon>
+						</svg>
+					</div>
+					<div class="rightEar">
+						<svg height="200px" width="50px">
+							<polygon fill="#87a55f" points="0,0 50,0 25,100 50,200 0,200" ></polygon>
+						</svg>
+					</div>
+				</div>
+				<div class="offers">
+					<h2>Services we offer</h2>
+					<div class="row">
+						{{ #each offersList }}
+							<div class="col-xs-12 col-md-4">
+								<div class="offer">
+									<div class="image" style="background-image: url({{image}});"></div>
+									<div class="info">
+										<h3 class="title pull-left">
+											{{fitString title 30 }}
+										</h3>
+										{{ #if price }}
+										<span class="price pull-right">
+											${{price}}
+										</span>
+										{{ /if }}
+									</div>
+									{{ #if description }}
+										<div class="description">
+											${{description}}
+										</div>
+									{{ /if }}
+								</div>
+							</div>
+						{{ /each }}
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div class="container">
+				<div class="directions">
+					<h2>Directions</h2>
+					<div class="directions">
+						{{directions}}
+					</div>
+				</div>
+			</div>
+		</footer>
 	</div>
 </template>
