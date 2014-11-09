@@ -1,3 +1,5 @@
+@import "../../styles/variables.import.less";
+
 .offers-list {
 	display: flex;
 	flex-wrap: wrap;
@@ -14,11 +16,18 @@
 		width: 180px;
 		height: 180px;
 		position: relative;
+
 		.thumbnail {
+
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
 		}
 	}
+}
+
+div.thumbnail {
+	background-color: @panel-bg-color;
+	border: none;	
 }
