@@ -49,6 +49,7 @@ Template.offers.events({
 
 		Session.set('offerId', null);
 		offerForm.reset();
+		$('#imageThumbnail').removeAttr('src');
 		return false;
 	},
 	'click .edit': function(e) {
@@ -58,5 +59,13 @@ Template.offers.events({
 		Offers.remove({
 			'_id': this._id
 		})
+	},
+	'change #image': function(e) {
+		var imageFile = e.currentTarget.files[0],
+			imageReader = new FileReader();
+		imageReader.onload = function (e) {
+			$('#imageThumbnail').attr('src', e.target.result);
+		};
+		imageReader.readAsDataURL(imageFile);
 	}
 });
