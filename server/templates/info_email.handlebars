@@ -1,16 +1,77 @@
 <html>
 <head>
+	<style>
+		.header, .body, .footer {
+			width: 580px;
+		}
+		.header {
+			height: 200px;
+		}
+		.header, .footer {
+			background-color: dark-gray;
+		}
+		.body {
+			background-color: #fff;
+		}
+		.header .hotel-cover {
+			width: 350px;
+			display: inline-block;
+			background-color: gray;
+		}
+		.header .hotel-cover > img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+		.header .hotel-logo {
+			width: 230px;
+		}
+		.description {
+			padding: 20px 80px;
+		}
+		.description h2, .address h2, .description p, .address p {
+			text-align: center
+		}
+		.description, .address, .services {
+			border: 1px solid gray;
+		}
+	</style>
 </head>
 <body style="width: 580px">
-	<h1>{{hotel_name}} welcomes you</h1>
-	<h3>Our page: {{hotel_url}}</h3>
-
-	<h2>Our offers:</h2>
-
-	{{#each offers}}
-		<h3>{{title}}</h3>
-		<p>{{description}}</p>
-		<p>${{price}}</p>
-		</br>
-	{{/each}}
+	<div class="header">
+		<div class="hotel-cover">
+			<img src="{{hotel_cover}}" alt="hotel-photo"/>
+		</div>
+		<div class="hotel-logo">
+			<h1>{{hotel_name}}</h1>
+			<img src="{{hotel_logo}}" alt="hotel-logo"/>
+		</div>
+	</div>
+	<div class="body">
+		<div class="description">
+			<h2>Welcome!</h2>
+			<p>{{hotel_description}}</p>
+		</div>
+		<div class="address">
+			<h2>How to get</h2>
+			<p>{{hotel_address}}</p>
+		</div>
+		<div class="services">
+			<h2>Services we offer:</h2>
+				{{#each offers}}
+				<div class="service">
+					<div class="service-image">
+						<img src="{{image}}" alt="{{title}}"/>
+					</div>
+					<div class="service-description">
+						<h3>{{title}}<div class="small">$ {{price}}</div></h3>
+						<p class="service-text">{{description}}</p>
+					</div>
+				</div>
+				{{/each}}
+		</div>
+	</div>
+	<div class="footer">
+		<h2>Also you can</h2>
+		<p>{{hotel_directions}}</p>
+	</div>
 </body>

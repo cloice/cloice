@@ -12,10 +12,15 @@ MailManager = {
 			html;
 
 		var hotel = Meteor.users.findOne(hotelId);
-		var offers = Offers.find({userId: hotel._id}).fetch();
+		var offers = Offers.find({userId: hotel._id}, {limit:3}).fetch();
 
 		var templateObj = {
+			hotel_cover: hotel.profile.cover,
 			hotel_name: hotel.profile.name,
+			hotel_logo: hotel.profile.logo,
+			hotel_description: hotel.profile.description,
+			hotel_address: hotel.profile.address,
+			hotel_directions: hotel.profile.directions,
 			hotel_url: Meteor.absoluteUrl() + 'hotel/' + hotel._id,
 			offers: offers
 		}
