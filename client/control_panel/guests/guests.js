@@ -46,6 +46,7 @@ Template.guests.events({
 
 		Session.set('guestId', null);
 		guestForm.reset();
+		alertify.success("Guest saved");
 		return false;
 	},
 	'click .edit': function(e) {
