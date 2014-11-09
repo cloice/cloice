@@ -97,8 +97,6 @@ if (Meteor.isClient) {
 				logoReader = new FileReader();
 			logoReader.onload = function (e) {
 				$('#logoThumbnail').attr('src', e.target.result);
-				$('#logoThumbnail').show();
-				$('#logoButton').hide();
 			};
 			logoReader.readAsDataURL(logoFile);
 		},
@@ -107,8 +105,6 @@ if (Meteor.isClient) {
 				coverReader = new FileReader();
 			coverReader.onload = function (e) {
 				$('#coverThumbnail').attr('src', e.target.result);
-				$('#coverThumbnail').show();
-				$('#coverButton').hide();
 			};
 			coverReader.readAsDataURL(coverFile);
 		}

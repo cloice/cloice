@@ -9,33 +9,17 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<label for="logoInput">Hotel Logo</label>
-                            {{ #if currentUser.profile.logo }}
-								<div class="btn-file">
-									<img class="thumbnail" id="logoThumbnail" src="{{ currentUser.profile.logo }}" style="width: 100%;"/>
-									<input type="file" id="logoInput">
-								</div>
-                            {{ else }}
-								<img class="thumbnail" id="logoThumbnail" style="width: 100%; display: none;"/>
-								<button class="btn btn-default btn-file" id="logoButton">
-									Upload logo
-									<input type="file" id="logoInput">
-								</button>
-							{{ /if }}
+							<div class="btn-file">
+								<img class="thumbnail" id="logoThumbnail" alt="Upload logo" src="{{ currentUser.profile.logo }}" style="width: 100%;"/>
+								<input type="file" id="logoInput">
+							</div>
 						</div>
 						<div class="col-sm-8">
 							<label for="logoInput">Hotel cover</label>
-                            {{ #if currentUser.profile.cover }}
-								<div class="btn-file">
-									<img class="thumbnail" id="coverThumbnail" src="{{ currentUser.profile.cover }}" style="width: 100%;"/>
-									<input type="file" id="coverInput">
-								</div>
-							{{ else }}
-								<img class="thumbnail" id="coverThumbnail" style="width: 100%; display: none;"/>
-								<button class="btn btn-default btn-file" id="coverButton">
-									Upload cover
-									<input type="file" id="coverInput">
-								</button>
-							{{ /if }}
+							<div class="btn-file">
+								<img class="thumbnail" id="coverThumbnail" alt="Upload cover" src="{{ currentUser.profile.cover }}" style="width: 100%;"/>
+								<input type="file" id="coverInput">
+							</div>
 						</div>
 					</div>
 
