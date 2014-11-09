@@ -40,6 +40,9 @@
 			display: inline-block;
 			text-align: center;
 		}
+		.header .hotel-logo img {
+			max-width: 100px;
+		}
 		.hotel-logo h1, .footer h2, .footer p {
 			color: #fff;
 		}
@@ -51,6 +54,9 @@
 			text-align: center;
 		}
 		.description, .address, .services {
+			border: 1px solid gray;
+		}
+		.address, .services {
 			border: 1px solid gray;
 			margin-top: 20px;
 		}
@@ -75,50 +81,56 @@
 		.service-description {
 			padding: 0 10px;
 		}
+		.service-description h3 {
+			line-height: 20px;
+		}
 		.service-description .small {
 			float: right;
 			font-size: 12px;
+			line-height: 20px;
 			color: gray;
 		}
 	</style>
 </head>
 <body style="width: 580px">
-	<div class="header">
-		<div class="hotel-cover">
-			<img src="http://lorempixel.com/120/120" alt="hotel-photo"/>
+	<div style="margin: 0 auto">
+		<div class="header">
+			<div class="hotel-cover">
+				<img src="http://lorempixel.com/120/120" alt="hotel-photo"/>
+			</div>
+			<div class="hotel-logo">
+				<h1>{{hotel_name}}</h1>
+				<img src="http://lorempixel.com/170/170" alt="hotel-logo"/>
+			</div>
 		</div>
-		<div class="hotel-logo">
-			<h1>{{hotel_name}}</h1>
-			<img src="http://lorempixel.com/170/170" alt="hotel-logo"/>
-		</div>
-	</div>
-	<div class="body">
-		<div class="description">
-			<h2>Welcome!</h2>
-			<p>{{hotel_description}}</p>
-		</div>
-		<div class="address">
-			<h2>How to get</h2>
-			<p>{{hotel_address}}</p>
-		</div>
-		<div class="services">
-			<h2>Services we offer:</h2>
-				{{#each offers}}
-				<div class="service">
-					<div class="service-image">
-						<img src="http://lorempixel.com/170/170" alt="{{title}}"/>
+		<div class="body">
+			<div class="description">
+				<h2>Welcome!</h2>
+				<p>{{hotel_description}}</p>
+			</div>
+			<div class="address">
+				<h2>How to get</h2>
+				<p>{{hotel_address}}</p>
+			</div>
+			<div class="services">
+				<h2>Services we offer:</h2>
+					{{#each offers}}
+					<div class="service">
+						<div class="service-image">
+							<img src="http://lorempixel.com/170/170" alt="{{title}}"/>
+						</div>
+						<div class="service-description">
+							<h3><div class="small">$ {{price}}</div>{{title}}</h3>
+							<p class="service-text">{{description}}</p>
+						</div>
 					</div>
-					<div class="service-description">
-						<h3>{{title}}<div class="small">$ {{price}}</div></h3>
-						<p class="service-text">{{description}}</p>
-					</div>
-				</div>
-				{{/each}}
+					{{/each}}
+			</div>
 		</div>
-	</div>
-	<div class="footer">
-		<h2>Also you can</h2>
-		<p>{{hotel_directions}}</p>
+		<div class="footer">
+			<h2>Also you can</h2>
+			<p>{{hotel_directions}}</p>
+		</div>
 	</div>
 </body> -->
 <html>
@@ -163,6 +175,9 @@
 			display: inline-block;
 			text-align: center;
 		}
+		.header .hotel-logo img {
+			max-width: 100px;
+		}
 		.hotel-logo h1, .footer h2, .footer p {
 			color: #fff;
 		}
@@ -174,6 +189,9 @@
 			text-align: center;
 		}
 		.description, .address, .services {
+			border: 1px solid gray;
+		}
+		.address, .services {
 			border: 1px solid gray;
 			margin-top: 20px;
 		}
@@ -198,49 +216,55 @@
 		.service-description {
 			padding: 0 10px;
 		}
+		.service-description h3 {
+			line-height: 20px;
+		}
 		.service-description .small {
 			float: right;
 			font-size: 12px;
+			line-height: 20px;
 			color: gray;
 		}
 	</style>
 </head>
 <body style="width: 580px">
-	<div class="header" style="width: 580px;height: 200px;background-color: #323c48;">
-		<div class="hotel-cover" style="float: left;margin-top: 35px;margin-bottom: 35px;width: 344px;display: inline-block;background-color: gray;border: 3px solid #666;">
-			<img src="http://lorempixel.com/120/120" alt="hotel-photo" style="max-width: 100%;max-height: 100%;">
+	<div style="margin: 0 auto">
+		<div class="header" style="width: 580px;height: 200px;background-color: #323c48;">
+			<div class="hotel-cover" style="float: left;margin-top: 35px;margin-bottom: 35px;width: 344px;display: inline-block;background-color: gray;border: 3px solid #666;">
+				<img src="http://lorempixel.com/120/120" alt="hotel-photo" style="max-width: 100%;max-height: 100%;">
+			</div>
+			<div class="hotel-logo" style="float: left;color: #fff;width: 230px;display: inline-block;text-align: center;">
+				<h1 style="color: #fff;">{{hotel_name}}</h1>
+				<img src="http://lorempixel.com/170/170" alt="hotel-logo" style="max-width: 100px;">
+			</div>
 		</div>
-		<div class="hotel-logo" style="float: left;color: #fff;width: 230px;display: inline-block;text-align: center;">
-			<h1 style="color: #fff;">{{hotel_name}}</h1>
-			<img src="http://lorempixel.com/170/170" alt="hotel-logo">
-		</div>
-	</div>
-	<div class="body" style="width: 580px;background-color: #fff;">
-		<div class="description" style="padding: 20px 80px;border: 1px solid gray;margin-top: 20px;">
-			<h2 style="text-align: center;">Welcome!</h2>
-			<p style="text-align: center;">{{hotel_description}}</p>
-		</div>
-		<div class="address" style="border: 1px solid gray;margin-top: 20px;">
-			<h2 style="text-align: center;">How to get</h2>
-			<p style="text-align: center;">{{hotel_address}}</p>
-		</div>
-		<div class="services" style="border: 1px solid gray;margin-top: 20px;padding: 5px 25px 50px 25px;height: 350px;">
-			<h2>Services we offer:</h2>
-				{{#each offers}}
-				<div class="service" style="width: 170px;height: 300px;float: left;">
-					<div class="service-image" style="border: 2px solid #dedede;width: 185px;height: 185px;">
-						<img src="http://lorempixel.com/170/170" alt="{{title}}" style="width: 185px;height: 185px;">
+		<div class="body" style="width: 580px;background-color: #fff;">
+			<div class="description" style="padding: 20px 80px;border: 1px solid gray;">
+				<h2 style="text-align: center;">Welcome!</h2>
+				<p style="text-align: center;">{{hotel_description}}</p>
+			</div>
+			<div class="address" style="border: 1px solid gray;margin-top: 20px;">
+				<h2 style="text-align: center;">How to get</h2>
+				<p style="text-align: center;">{{hotel_address}}</p>
+			</div>
+			<div class="services" style="border: 1px solid gray;margin-top: 20px;padding: 5px 25px 50px 25px;height: 350px;">
+				<h2>Services we offer:</h2>
+					{{#each offers}}
+					<div class="service" style="width: 170px;height: 300px;float: left;">
+						<div class="service-image" style="border: 2px solid #dedede;width: 185px;height: 185px;">
+							<img src="http://lorempixel.com/170/170" alt="{{title}}" style="width: 185px;height: 185px;">
+						</div>
+						<div class="service-description" style="padding: 0 10px;">
+							<h3 style="line-height: 20px;"><div class="small" style="float: right;font-size: 12px;line-height: 20px;color: gray;">$ {{price}}</div>{{title}}</h3>
+							<p class="service-text">{{description}}</p>
+						</div>
 					</div>
-					<div class="service-description" style="padding: 0 10px;">
-						<h3>{{title}}<div class="small" style="float: right;font-size: 12px;color: gray;">$ {{price}}</div></h3>
-						<p class="service-text">{{description}}</p>
-					</div>
-				</div>
-				{{/each}}
+					{{/each}}
+			</div>
 		</div>
-	</div>
-	<div class="footer" style="width: 580px;background-color: #323c48;padding: 20px 0;text-align: center;">
-		<h2 style="color: #fff;text-align: center;">Also you can</h2>
-		<p style="padding: 0 80px;color: #fff;text-align: center;">{{hotel_directions}}</p>
+		<div class="footer" style="width: 580px;background-color: #323c48;padding: 20px 0;text-align: center;">
+			<h2 style="color: #fff;text-align: center;">Also you can</h2>
+			<p style="padding: 0 80px;color: #fff;text-align: center;">{{hotel_directions}}</p>
+		</div>
 	</div>
 </body></html>
