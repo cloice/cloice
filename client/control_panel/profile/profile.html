@@ -11,7 +11,7 @@
 							<label for="logoInput">Hotel Logo</label>
                             {{ #if currentUser.profile.logo }}
 								<div class="btn-file">
-									<img class="thumbnail" src="{{ currentUser.profile.logo }}" style="width: 100%;"/>
+									<img class="thumbnail" id="logoThumbnail" src="{{ currentUser.profile.logo }}" style="width: 100%;"/>
 									<input type="file" id="logoInput">
 								</div>
                             {{ else }}
@@ -25,7 +25,7 @@
 							<label for="logoInput">Hotel cover</label>
                             {{ #if currentUser.profile.cover }}
 								<div class="btn-file">
-									<img class="thumbnail" src="{{ currentUser.profile.cover }}" style="width: 100%;"/>
+									<img class="thumbnail" id="coverThumbnail" src="{{ currentUser.profile.cover }}" style="width: 100%;"/>
 									<input type="file" id="coverInput">
 								</div>
 							{{ else }}

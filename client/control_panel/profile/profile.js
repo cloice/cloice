@@ -91,6 +91,22 @@ if (Meteor.isClient) {
 					}
 				}
 			});
+		},
+		'change #logoInput': function(e){
+			var logoFile = e.currentTarget.files[0],
+				logoReader = new FileReader();
+			logoReader.onload = function (e) {
+				$('#logoThumbnail').attr('src', e.target.result);
+			};
+			logoReader.readAsDataURL(logoFile);
+		},
+		'change #coverInput': function(e){
+			var coverFile = e.currentTarget.files[0],
+				coverReader = new FileReader();
+			coverReader.onload = function (e) {
+				$('#coverThumbnail').attr('src', e.target.result);
+			};
+			coverReader.readAsDataURL(coverFile);
 		}
 	});
 }
