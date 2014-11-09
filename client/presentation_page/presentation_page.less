@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700);
+
 .presentation-page {
 
 	@width: 673px;
@@ -7,6 +9,10 @@
 	@border2-color: #dedede;
 	@overlapping: 40px;
 	@box-background: #fafafa;
+
+	h1, h2, h3, h4, h5 {
+		font-family: 'Arvo', serif;
+	}
 
 	.container {
 		max-width: @width;
@@ -55,6 +61,14 @@
 			> .description {
 				margin-top: -@overlapping;
 				padding: 20px 80px;
+
+				.rightEar {
+					position: relative;
+					height: 0;
+					width: 0;
+					left: 562px;
+					top: -21px;
+				}
 			}
 
 			> .map {
@@ -63,6 +77,30 @@
 					height: 200px;
 					width: 100%;
 					padding: 0;
+					position: relative;
+					z-index: 2;
+				}
+
+				.leftEar {
+					position: relative;
+					height: 0;
+					width: 0;
+					left: -50px;
+					top: -200px;
+					z-index: 1;
+				}
+
+				.rightEar {
+					position: relative;
+					height: 0;
+					width: 0;
+					left: 641px;
+					top: -200px;
+					z-index: 1;
+				}
+
+				.address {
+					margin-bottom: 20px;
 				}
 			}
 
