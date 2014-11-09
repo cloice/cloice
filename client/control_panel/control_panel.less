@@ -1,3 +1,5 @@
+@import "../styles/variables.import.less";
+
 .control-panel {
 	padding-top: 75px;
 
@@ -25,10 +27,66 @@
 }
 
 .navbar {
-	#logo {
+	#logo-small {
 		height: 23px;
-		opacity: 0.7;
+		opacity: 0.9;
 		margin-right: 20px;
 		margin-top: -8px;	
+	}
+}
+
+
+.navbar-default {
+	border: none;
+	background-color: @navbar-bg-color;
+	color: @navbar-text-color;
+
+	.navbar-nav > li > a {
+		color: @navbar-text-color;
+
+		&:hover {
+			color: @navbar-text-hover-color;
+		}
+	}
+
+	.navbar-nav > li.active > a {
+		background-color: @panel-headers-bg-color;
+		color: @navbar-text-color;
+
+		&:hover {
+			color: @navbar-text-hover-color;
+			background-color: @panel-headers-bg-color;
+		}
+	}
+
+	.navbar-text {
+		color: @navbar-text-color;
+	}
+}
+
+body {
+	background-color: @body-bg-color;
+}
+
+.panel-default>.panel-heading {
+	background-color: @panel-headers-bg-color;
+	color: #fff;
+}
+
+.panel-default {
+	border: none;
+}
+
+.panel {
+	background-color: rgba(255, 255, 255, 0.85);
+}
+
+.btn-info {
+	background-color: @btn-color;
+	border-color: @btn-border-color;
+
+	&:hover, &:active, &:focus {
+		background-color: @btn-hover-color;
+		border-color: @btn-hover-border-color;
 	}
 }
