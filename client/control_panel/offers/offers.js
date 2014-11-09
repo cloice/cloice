@@ -6,9 +6,6 @@ Template.offers.helpers({
 	},
 	offer: function() {
 		return Offers.findOne(Session.get('offerId')) || {};
-	},
-	imageOrPlacholder: function(img) {
-		return img || "http://placehold.it/180x180";
 	}
 });
 
@@ -56,7 +53,7 @@ Template.offers.events({
 
 		Session.set('offerId', null);
 		offerForm.reset();
-		$('#imageThumbnail').removeAttr('src');
+		//$('#imageThumbnail').removeAttr('src');
 		return false;
 	},
 	'click .edit': function(e) {

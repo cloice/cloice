@@ -4,20 +4,20 @@
 			<div class="panel-heading">
 				<h3 class="panel-title"><span class="glyphicon glyphicon-home"></span>&nbsp;Hotel Profile</h3>
 			</div>
-			<form role="form" class="form-horizontal">
+			<form role="form" id="profileForm" class="form-horizontal">
 				<div class="panel-body">
 					<div class="row form-group">
 						<div class="col-sm-4">
 							<label for="logoInput">Hotel Logo</label>
 							<div class="btn-file">
-								<img class="thumbnail" id="logoThumbnail" alt="Upload logo" src="{{ currentUser.profile.logo }}" style="width: 100%;"/>
+								<img class="thumbnail" id="logoThumbnail" alt="Upload logo" src="{{ imageOrPlacholder currentUser.profile.logo 180 180 }}" style="width: 100%;"/>
 								<input type="file" id="logoInput">
 							</div>
 						</div>
 						<div class="col-sm-8">
 							<label for="logoInput">Hotel Cover</label>
 							<div class="btn-file">
-								<img class="thumbnail" id="coverThumbnail" alt="Upload cover" src="{{ currentUser.profile.cover }}" style="width: 100%;"/>
+								<img class="thumbnail" id="coverThumbnail" alt="Upload cover" src="{{ imageOrPlacholder currentUser.profile.cover 475 180 }}" style="width: 100%;"/>
 								<input type="file" id="coverInput">
 							</div>
 						</div>

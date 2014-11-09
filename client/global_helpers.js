@@ -28,3 +28,8 @@ UI.registerHelper('fitString', function(string, maxSymbols) {
 UI.registerHelper('highlightNavigation', function(route) {
 	return Router.current().route.getName() === route ? 'active' : '';
 });
+
+UI.registerHelper('imageOrPlacholder', function(img, x, y) {
+	console.log(img);
+	return img || "http://placehold.it/"+ x +"x" + y;
+});
