@@ -1,5 +1,6 @@
 Template.controlPanel.events({
-	'click .logout-btn': function() {
+	'click .logout-btn': function(e) {
+		e.preventDefault();
 		Meteor.logout();
 	}
 });
