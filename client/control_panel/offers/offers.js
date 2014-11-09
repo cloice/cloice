@@ -44,10 +44,8 @@ Template.offers.events({
 			var imageFile = formElements['image'].files[0],
 				imageReader = new FileReader(),
 				offerId = Session.get('offerId');
-			console.log(offerId);
 
 			imageReader.onload = function (e) {
-				console.log(offerId);
 				Offers.update({_id: offerId}, {$set: {'image': e.target.result}});
 			};
 			imageReader.readAsDataURL(imageFile);
