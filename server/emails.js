@@ -1,5 +1,3 @@
-var nodemailer = Meteor.npmRequire('nodemailer');
-
 Meteor.methods({
 	sendInfoEmail: function(guestId) {
 		this.unblock();
